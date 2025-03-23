@@ -1,0 +1,116 @@
+""" Rohan is working on a program to calculate the total expenses from a list of transactions. He inputs the number of transactions, N, and their respective values. However, he wants the program to handle situations where fewer than N values are entered. If this happens, the program should display a "list index out of range" message using exception handling.
+
+Input format :
+The first line of input contains a number of values N
+
+The second line of input contains space-separated values
+
+Output format :
+The output displays the sum of the N values.
+
+If the number of values is less than N, then it displays an IndexError message.
+
+"""
+
+
+count = int(input())
+inp = input().split()
+result = 0
+exception = 'False'
+
+for i in range(count):
+    try:
+        result = result + int(inp[i])
+    except IndexError as e:
+        print(e)
+        exception = 'True'
+        break
+
+if exception != 'True':
+    print(result)
+
+
+
+""" Riya is developing a weather application that converts temperatures from Celsius to Fahrenheit. To ensure the program handles incorrect user inputs gracefully, she wants it to validate the input. If the input cannot be converted to a floating-point number, the program should display the message "Invalid Input".
+
+
+
+Hint: Formula to convert temperature from Celsius to Fahrenheit.
+
+Fahrenheit = (Celsius * 9/5) + 32
+
+Input format :
+The input consists of temperature value (float) which needs to be converted to Fahrenheit.
+
+Output format :
+If there is an invalid input, Output displays 'Invalid Input'
+
+Otherwise, the Output displays the temperature in Fahrenheit.
+
+"""
+#Program to convert temperature from Celsius to Fahrenheit
+
+try:
+    c = float(input())
+    f = (c * 9/5) + 32
+    print(f)
+except:
+    print('Invalid Input')
+
+
+""" Nisha is a mathematics teacher who often uses a program to teach her students integer division. She is testing a program with multiple test cases to ensure it handles exceptions properly. For each test case, she inputs two integers a and b. The program should calculate the integer division a // b. If there is a division by zero or an invalid input, it should display the corresponding error code.
+
+
+
+Use Exception handling.
+
+Input format :
+The first line of input contains a positive integer representing the number of test cases.
+
+The next T lines contain space-separated values of a and b (integers)
+
+Output format :
+The T lines display the output, the performed division.
+
+In the case of ZeroDivisionError or ValueError, display the error code.
+
+"""
+
+
+t = int(input())
+for _ in range(t):
+    a, b = input().split()
+    try:
+        div = int(a) // int(b)
+        print(div)
+    except ZeroDivisionError as e:
+        print(e)
+    except ValueError as e:
+        print(e)
+
+
+""" Read input from the user. If the input is not an alphabet raise an error using the raise keyword and handle it.
+
+Input format :
+The input should be an alphabet.
+
+Output format :
+The output prints if the given input is an alphabet or not.
+
+
+
+Refer to the sample output for formatting specifications.
+
+Code constraints :
+The given test cases fall under the following constraints:
+
+The input is an alphabet"""
+
+try:
+    a = input()
+    if((a>='a' and a<='z') or (a>='A' and a<='Z')):
+        print("{} is an alphabet".format(a))
+    else:
+        raise ValueError("{} is not an alphabet".format(a)) 
+except ValueError as ve:
+    print(ve)
